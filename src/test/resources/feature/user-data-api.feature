@@ -6,10 +6,10 @@ Feature: User CRUD Operations
     Scenario Outline: Verify Admin can retrieve all users with valid or invalid data
         Given Admin constructs a GET request for the User Data
         When Admin sends an HTTP request to "<endpoint>" with "<authorization>"
-        Then Admin receives a response status code "<statuscode>" with message "<statustext>" for "<endpoint>" and "<authorization>"
+        Then Admin receives a response status code "<statuscode>" with message "<statusMsg>" for "<endpoint>" and "<authorization>"
 
         Examples:
-            | endpoint | statuscode | statusMessage   | authorization |
+            | endpoint | statuscode | statusMsg    | authorization |
             | valid    | 401        | Unauthorized | noauth        |
             | valid    | 200        | OK           | auth          |
             | invalid  | 404        | Not Found    | auth          |
@@ -21,7 +21,7 @@ Feature: User CRUD Operations
         Then Admin receives a response code
 
         Examples:
-            | sheet      | row | endpoint |
+            | sheet    | row | endpoint |
             | UserData | 1   | invalid  |
             | UserData | 1   | valid    |
             | UserData | 3   | valid    |
@@ -70,17 +70,17 @@ Feature: User CRUD Operations
         Then Admin receives a response code
 
         Examples:
-            | sheet      | row | endpoint |
+            | sheet    | row | endpoint |
             | UserData | 1   | valid    |
 
     @get_request_get_user_by_userid
     Scenario Outline: Verify Admin can retrieve user details by userID with valid and invalid inputs
         Given Admin constructs a GET request for the User Data
         When Admin sends an HTTPS request with authorization "<authorization>" to "<endpoint>" to retrieve User details by UserID "<userid>"
-        Then Admin receives status <statuscode> and message "<statustext>" with response body for the User Data
+        Then Admin receives status <statuscode> and message "<statusMsg>" with response body for the User Data
 
         Examples:
-            | userid  | endpoint | statuscode | statustext   | authorization |
+            | userid  | endpoint | statuscode | statusMsg    | authorization |
             | valid   | valid    | 401        | Unauthorized | noauth        |
             | valid   | valid    | 200        | OK           | auth          |
             | valid   | invalid  | 404        | Not Found    | auth          |
@@ -90,23 +90,23 @@ Feature: User CRUD Operations
     Scenario Outline: Verify Admin can update user details with valid or invalid data
         Given Admin constructs a PUT request to update User details with request body from "<sheet>" and <row>
         When Admin sends an HTTP PUT request with "<authorization>" to "<endpoint>" to update User by "<userid>" with request body from "<sheet>" and <row>
-        Then Admin receives response code <statuscode> and message "<respMsg>"
+        Then Admin receives response code "<statuscode>"
 
         Examples:
-            | sheet      | row | endpoint | userid  | authorization | statuscode | respMsg      |
-            | UserData | 48  | valid    | valid   | noauth        | 401        | HTTP/1.1 401 |
-            | UserData | 48  | invalid  | valid   | auth          | 404        | HTTP/1.1 404 |
-            | UserData | 48  | valid    | invalid | auth          | 404        | HTTP/1.1 404 |
-            | UserData | 48  | valid    | valid   | auth          | 200        | HTTP/1.1 200 |
+            | sheet    | row | endpoint | userid  | authorization | statuscode |
+            | UserData | 48  | valid    | valid   | noauth        | 401        |
+            | UserData | 48  | invalid  | valid   | auth          | 404        |
+            | UserData | 48  | valid    | invalid | auth          | 404        |
+            | UserData | 48  | valid    | valid   | auth          | 200        |
 
     @get_request_get_user_by_userfirstname
     Scenario Outline: Verify Admin can retrieve user details by userFirstName with valid and invalid inputs
         Given Admin constructs a GET request for the User Data
         When Admin sends an HTTPS request with authorization "<authorization>" to "<endpoint>" to retrieve User details by User First Name "<userfirstname>"
-        Then Admin receives status <statuscode> and message "<statustext>" with response body for the User Data
+        Then Admin receives status <statuscode> and message "<statusMsg>" with response body for the User Data
 
         Examples:
-            | userfirstname | endpoint | statuscode | statustext   | authorization |
+            | userfirstname | endpoint | statuscode | statusMsg    | authorization |
             | valid         | valid    | 401        | Unauthorized | noauth        |
             | valid         | valid    | 200        | OK           | auth          |
             | valid         | invalid  | 404        | Not Found    | auth          |
@@ -116,14 +116,14 @@ Feature: User CRUD Operations
     Scenario Outline: Verify Admin can delete user by userID with valid and invalid inputs
         Given Admin constructs a DELETE request for the User Data
         When Admin sends an HTTPS request with authorization "<authorization>" to "<endpoint>" to delete User by UserID "<userid>"
-        Then Admin receives status <statuscode> and message "<statustext>" and "<respMsg>" with response body for the User Data
+        Then Admin receives status <statuscode> and message "<statusMsg>"
 
         Examples:
-            | userid  | endpoint | statuscode | statustext   | authorization | respMsg      |
-            | valid   | valid    | 401        | Unauthorized | noauth        | HTTP/1.1 401 |
-            | valid   | valid    | 200        | OK           | auth          | HTTP/1.1 200 |
-            | valid   | invalid  | 404        | Not Found    | auth          | HTTP/1.1 404 |
-            | invalid | valid    | 404        | Not Found    | auth          | HTTP/1.1 404 |
+            | userid  | endpoint | statuscode | statusMsg    | authorization |
+            | valid   | valid    | 401        | Unauthorized | noauth        |
+            | valid   | valid    | 200        | OK           | auth          |
+            | valid   | invalid  | 404        | Not Found    | auth          |
+            | invalid | valid    | 404        | Not Found    | auth          |
 
     @post_request_to_create_user_with_mandatory_fields
     Scenario Outline: Verify Admin can create a new user with mandatory fields only
@@ -132,17 +132,18 @@ Feature: User CRUD Operations
         Then Admin receives a response code
 
         Examples:
-            | sheet      | row | endpoint |
+            | sheet    | row | endpoint |
             | UserData | 44  | valid    |
+
 
     @delete_request_delete_user_by_userfirstname
     Scenario Outline: Verify Admin can delete user by userFirstName with valid and invalid inputs
         Given Admin constructs a DELETE request for the User Data
         When Admin sends an HTTPS request with authorization "<authorization>" to "<endpoint>" to delete User by User First Name "<userfirstname>"
-        Then Admin receives status <statuscode> and message "<statustext>" and "<respMsg>" with response body for the User Data
+        Then Admin receives status <statuscode> and message "<statusMsg>" 
 
         Examples:
-            | userfirstname | endpoint | statuscode | statustext   | authorization | respMsg      |
+            | userfirstname | endpoint | statuscode | statusMsg    | authorization |
             | valid         | valid    | 401        | Unauthorized | noauth        |
             | valid         | valid    | 200        | OK           | auth          |
             | valid         | invalid  | 404        | Not Found    | auth          |
