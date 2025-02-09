@@ -1,0 +1,49 @@
+﻿requestType,userFirstame,userLastName,userContactNo,userEmailId,plotNo,street,state,country,zipcode,statusCode,statusText
+POST,Rita,Li,9193617243,rittaa12@gmail.com,sss-111,Austin,TX,USA,12345,201,Created
+POST,Deb,Li,9955377234,deba113@gmail.com,,,,,,201,Created
+POST,,Li,4919657244,ritaa1Q@gmail.com,sss-112,Austin,TX,USA,12346,400,Bad Request
+POST,Rita111,Li,4919657245,ritaa2Q@gmail.com,sss-113,Austin,TX,USA,12347,400,Bad Request
+POST,111,Li,4919657246,ritaa3Q@gmail.com,sss-114,Austin,TX,USA,12348,400,Bad Request
+POST,Rita@,Li,4919657247,ritaa4Q@gmail.com,sss-115,Austin,TX,USA,12349,400,Bad Request
+POST,Rita,,4919657248,ritaa5Q@gmail.com,sss-116,Austin,TX,USA,12350,400,Bad Request
+POST,Rita,Li111,4919657249,ritaa6Q@gmail.com,sss-117,Austin,TX,USA,12351,400,Bad Request
+POST,Rita,111,4919657250,ritaa7Q@gmail.com,sss-118,Austin,TX,USA,12352,400,Bad Request
+POST,Rita,Li@,4919657251,ritaa8Q@gmail.com,sss-119,Austin,TX,USA,12353,400,Bad Request
+POST,Rita,Li,,ritaa9Q@gmail.com,sss-120,Austin,TX,USA,12354,400,Bad Request
+POST,Rita,Li,0,ritaa10Q@gmail.com,sss-121,Austin,TX,USA,12355,400,Bad Request
+POST,Rita,Li,1234,ritaa11Q@gmail.com,sss-122,Austin,TX,USA,12356,400,Bad Request
+POST,Rita,Li,1234567891234,ritaa12Q@gmail.com,sss-123,Austin,TX,USA,12357,400,Bad Request
+POST,Rita,Li,123423456@,ritaa13Q@gmail.com,sss-124,Austin,TX,USA,12358,400,Bad Request
+POST,Rita,Li,aaa,ritaa14Q@gmail.com,sss-125,Austin,TX,USA,12359,400,Bad Request
+POST,Rita,Li,1214563412,ritaa11@gmail.com,sss-126,Austin,TX,USA,12360,409,Conflict
+POST,Rita,Li,4999157244,null,sss-127,Austin,TX,USA,12361,400,Bad Request
+POST,Rita,Li,4999157245,,sss-128,Austin,TX,USA,12362,400,Bad Request
+POST,Rita,Li,4999157246,abcd,sss-129,Austin,TX,USA,12363,400,Bad Request
+POST,Rita,Li,4999157247,111,sss-130,Austin,TX,USA,12364,400,Bad Request
+POST,Rita,Li,4999157248,@gmail.com,sss-131,Austin,TX,USA,12365,400,Bad Request
+POST,Rita,Li,4999157249,deb@,sss-132,Austin,TX,USA,12366,400,Bad Request
+POST,Rita,Li,4999157250,.deb@gmail.com,sss-133,Austin,TX,USA,12367,400,Bad Request
+POST,Rita,Li,4999157251,deb@gmail.,sss-134,Austin,TX,USA,12368,400,Bad Request
+POST,Rita,Li,4999157252,Team1Lata8@gmail.com,sss-135,Austin,TX,USA,12369,409,Conflict
+POST,Rita,Li,4999157257,ritaa15Q@gmail.com,,Austin,TX,USA,12374,400,Bad Request
+POST,Rita,Li,4999157258,ritaa16Q@gmail.com,aaa,Austin,TX,USA,12375,400,Bad Request
+POST,Rita,Li,4999157259,ritaa17Q@gmail.com,111,Austin,TX,USA,12376,400,Bad Request
+POST,Rita,Li,4999157260,ritaa18Q@gmail.com,sss-139,,TX,USA,12377,400,Bad Request
+POST,Rita,Li,4999157261,ritaa19Q@gmail.com,sss-140,111,TX,USA,12378,400,Bad Request
+POST,Rita,Li,4999157262,ritaa20Q@gmail.com,sss-141,Austin@,TX,USA,12379,400,Bad Request
+POST,Rita,Li,4999157263,ritaa21Q@gmail.com,sss-142,Austin,,USA,12380,400,Bad Request
+POST,Rita,Li,4999157264,ritaa22Q@gmail.com,sss-143,Austin,111,USA,12381,400,Bad Request
+POST,Rita,Li,4999157265,ritaa23Q@gmail.com,sss-144,Austin,TX@,USA,12382,400,Bad Request
+POST,Rita,Li,4999157266,ritaa24Q@gmail.com,sss-145,Austin,TX,,12383,400,Bad Request
+POST,Rita,Li,4999157267,ritaa25Q@gmail.com,sss-146,Austin,TX,111,12384,400,Bad Request
+POST,Rita,Li,4999157268,ritaa26Q@gmail.com,sss-147,Austin,TX,USA@,12385,400,Bad Request
+POST,Rita,Li,4999157269,ritaa27Q@gmail.com,sss-148,Austin,TX,USA,aaa,400,Bad Request
+POST,Rita,Li,4999157270,ritaa28Q@gmail.com,sss-149,Austin,TX,USA,1234@,400,Bad Request
+,,,,,,,,,,,
+Create User with Mandatory Fields only,,,,,,,,,,,
+,,,,,,,,,,,
+POST,Debbi,Roy,4955577244,debbi1q@gmail.com,,,,,,201,Created
+,,,,,,,,,,,
+Update User,,,,,,,,,,,
+,,,,,,,,,,,
+PUT,Raha,Roy,4911632244,ritika1@gmail.com,sss-111,Austin,TX,USA,12345,200,OK
