@@ -1,2 +1,7 @@
 /.vscode
 /target
+allure-results
+.settings
+ExtentReports
+.classpath
+.project
