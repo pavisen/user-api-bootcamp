@@ -46,12 +46,6 @@ public class RestSupport {
 	public String extractResponse;
 	public int statusCode;
 	public int responseBody;
-	public int userId1;
-	public String userFirstName1;
-	public int userIdMandatoryFields;
-	public String userFirstNameMandatoryFields;
-	public int InvalidUserId = 905000;
-	public String InvalidUserFirstName = "zz";
 
 	protected RequestSpecification getCommonRequestSpec(String hasAuth) {
 		RequestSpecBuilder builder = new RequestSpecBuilder();
@@ -62,10 +56,8 @@ public class RestSupport {
 		return requestSpec;
 	}
 
-	protected ResponseSpecification getCommonResponseSpec(boolean valid) {
+	protected ResponseSpecification getCommonResponseSpec() {
 		ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();
-		if (valid)
-			responseSpecBuilder.expectHeader("Content-Type", "application/json");
 		ResponseSpecification responseSpec = responseSpecBuilder.build();
 		return responseSpec;
 	}

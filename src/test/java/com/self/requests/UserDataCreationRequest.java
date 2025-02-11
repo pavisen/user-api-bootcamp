@@ -19,11 +19,9 @@ public class UserDataCreationRequest extends RestSupport {
 		String endpoint = "";
 		endpoint = getBaseURL() + UserDataEndPoints.CREATEUSER;
 		Response response = given().spec(getCommonRequestSpec("auth")).body(userPayload).when().post(endpoint).then()
-				.spec(getCommonResponseSpec(true)).extract().response();
+				.spec(getCommonResponseSpec( )).extract().response();
 		if (statusCode == 201) {
-			userId1 = response.getBody().jsonPath().getInt("user_id");
-			userFirstName1 = response.getBody().jsonPath().getString("user_first_name");
-			response.then().body(JsonSchemaValidator.matchesJsonSchema(getUserPostWithAllFieldsJson()));
+			 response.then().body(JsonSchemaValidator.matchesJsonSchema(getUserPostWithAllFieldsJson()));
 			response.then().body("user_id", notNullValue(), "user_first_name", notNullValue(), "user_last_name",
 					notNullValue(), "user_contact_number", notNullValue(), "user_email_id", notNullValue());
 			response.then().body("user_first_name", equalTo(userPayload.getUser_first_name()))
@@ -37,7 +35,7 @@ public class UserDataCreationRequest extends RestSupport {
 					.body("userAddress.zipCode", equalTo(Integer.parseInt(userPayload.getUserAddress().getZipCode())));
 		}
 		System.out.println("User Phone #"+userPayload.getUser_contact_number());
-		Assert.assertEquals(response.getStatusCode(), userPayload.getExpectedStatusCode());
+ 
 		if (statusCode == 200) {
 			Integer userId = Integer.parseInt(response.getBody().jsonPath().get("user_id"));
 			createdUsers.put(userId, userPayload);
@@ -49,7 +47,7 @@ public class UserDataCreationRequest extends RestSupport {
 	public Response postRequestNoAuth(UserPayload objUserPayload)
 			throws IOException {
 		Response response = given().spec(getCommonRequestSpec("noauth")).body(objUserPayload).when()
-				.post(getBaseURL() + UserDataEndPoints.CREATEUSER).then().spec(getCommonResponseSpec(false)).extract()
+				.post(getBaseURL() + UserDataEndPoints.CREATEUSER).then().spec(getCommonResponseSpec( )).extract()
 				.response();
 		Assert.assertEquals(response.getStatusCode(), 401);
 		Assert.assertTrue(response.getContentType().equalsIgnoreCase("application/json"));

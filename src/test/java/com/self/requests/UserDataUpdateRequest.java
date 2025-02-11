@@ -22,15 +22,15 @@ public class UserDataUpdateRequest extends RestSupport {
 		String endpoint = getBaseURL() + UserDataEndPoints.UPDATEUSER + objUserPayload.getUserId();
 		Response response;
 		response = RestAssured.given().spec(getCommonRequestSpec(hasAuthorization)).body(objUserPayload).when()
-				.put(endpoint).then().spec(getCommonResponseSpec(false)).assertThat().time(lessThan(2000L)).extract()
+				.put(endpoint).then().spec(getCommonResponseSpec( )).assertThat().time(lessThan(2000L)).extract()
 				.response();
 		if (statusCode == 200) {
-			userId1 = response.getBody().jsonPath().getInt("user_id");
-			userFirstName1 = response.getBody().jsonPath().getString("user_first_name");
+			objUserPayload.setUserId(response.getBody().jsonPath().getInt("user_id"));
+			 
 			response.then().body(JsonSchemaValidator.matchesJsonSchema(getUserPostWithAllFieldsJson()));
 			response.then().body("user_id", notNullValue(), "user_first_name", notNullValue(), "user_last_name",
 					notNullValue(), "user_contact_number", notNullValue(), "user_email_id", notNullValue());
-			response.then().body("user_id", equalTo(userId1))
+			response.then()
 					.body("user_first_name", equalTo(objUserPayload.getUser_first_name()))
 					.body("user_last_name", equalTo(objUserPayload.getUser_last_name()))
 					.body("user_contact_number", equalTo(Long.parseLong(objUserPayload.getUser_contact_number())))

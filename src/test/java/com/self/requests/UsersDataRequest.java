@@ -21,7 +21,7 @@ public class UsersDataRequest extends RestSupport {
 		System.out.println(endpoint +": ---"+hasAuthorization);
 
 		response = given().spec(getCommonRequestSpec(hasAuthorization)).when().get( endpoint).then()
-				.spec(getCommonResponseSpec(endpoint.contains(UserDataEndPoints.GETALLUSERS) && hasAuthorization.equals("auth"))).extract().response();
+				.spec(getCommonResponseSpec( )).extract().response();
 
 		return response;
 	}
