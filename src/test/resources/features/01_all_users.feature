@@ -1,5 +1,5 @@
 Feature: Retrieve all users
-Background: User sets the Basic authorization with Username and Password and enters the base URL 
+
  @get_all_users
     Scenario Outline: Verify Admin can retrieve all users with valid or invalid data
         Given Admin constructs a GET request for the User Data
@@ -8,6 +8,6 @@ Background: User sets the Basic authorization with Username and Password and ent
 
         Examples:
             | endpoint | statuscode | statusMsg    | authorization |
-            | valid    | 401        | Unauthorized | noauth        |
             | valid    | 200        | OK           | auth          |
             | invalid  | 404        | Not Found    | auth          |
+            | valid    | 401        | Unauthorized | noauth        |

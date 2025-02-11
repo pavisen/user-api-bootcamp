@@ -1,5 +1,5 @@
 Feature: delete the existing user
-Background: User sets the Basic authorization with Username and Password and enters the base URL 
+
  @delete_user_by_userid
     Scenario Outline: Verify Admin can delete user by userID with valid and invalid inputs
         Given Admin constructs a DELETE request for the User Data

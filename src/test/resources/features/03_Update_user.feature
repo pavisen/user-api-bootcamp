@@ -1,14 +1,14 @@
 Feature: update the existing user
-Background: User sets the Basic authorization with Username and Password and enters the base URL 
- @update_user
-    Scenario Outline: Verify Admin can update user details with valid or invalid data
-        Given Admin constructs a PUT request to update User details with request body from "<sheet>" and <row>
-        When Admin sends an HTTP PUT request with "<authorization>" to "<endpoint>" to update User by "<userid>" with request body from "<sheet>" and <row>
+
+    @update_user
+    Scenario Outline: Verify Admin can update user details with valid data
+        Given Admin constructs a PUT request to update User details with request body
+        When Admin sends an HTTP PUT request to update User by "<userid>" with request body
         Then Admin receives response code "<statuscode>"
 
         Examples:
-            | sheet    | row | endpoint | userid  | authorization | statuscode |
-            | UserData | 48  | valid    | valid   | noauth        | 401        |
-            | UserData | 48  | invalid  | valid   | auth          | 404        |
-            | UserData | 48  | valid    | invalid | auth          | 404        |
-            | UserData | 48  | valid    | valid   | auth          | 200        |
+            | userid  | authorization | statuscode |
+            | valid   | noauth        | 401        |
+            | valid   | auth          | 404        |
+            | invalid | auth          | 404        |
+            | valid   | auth          | 200        |

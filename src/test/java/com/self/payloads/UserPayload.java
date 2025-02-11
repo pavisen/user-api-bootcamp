@@ -1,13 +1,16 @@
-package com.self.utilities.payloads;
-
+package com.self.payloads;
 
 public class UserPayload {
- 
+
+	private transient int expectedStatusCode;
+	private transient String statusMessage;
+	private transient int userId = -1;
+
 	private String user_first_name;
 	private String user_last_name;
 	private String user_contact_number;
 	private String user_email_id;
-	private AddressPayload userAddress ;
+	private AddressPayload userAddress;
 
 	public String getUser_first_name() {
 		return user_first_name;
@@ -48,6 +51,28 @@ public class UserPayload {
 	public void setUserAddress(AddressPayload userAddress) {
 		this.userAddress = userAddress;
 	}
-	
-	
+
+	public int getExpectedStatusCode() {
+		return expectedStatusCode;
+	}
+
+	public void setExpectedStatusCode(int expectedStatusCode) {
+		this.expectedStatusCode = expectedStatusCode;
+	}
+
+	public String getStatusMessage() {
+		return statusMessage;
+	}
+
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 }

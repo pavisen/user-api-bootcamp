@@ -1,4 +1,4 @@
-package com.self.stepDefinitions;
+package com.self.stepdef;
 
 import java.io.IOException;
 

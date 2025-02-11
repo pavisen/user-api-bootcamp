@@ -1,4 +1,4 @@
-package com.self.utilities.payloads;
+package com.self.payloads;
 
 public class AddressPayload {
 	 
